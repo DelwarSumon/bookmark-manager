@@ -1,0 +1,11 @@
+{
+    "name": "delwar-sumon/bookmark-manager",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Md Delwar Hossain",
+            "email": "delwarsumon0@gmail.com"
+        }
+    ],
+    "require": {}
+}
