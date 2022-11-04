@@ -1,0 +1,5 @@
+id,name,url,folder_id,created_at,updated_at
+1,Google Bookmark,http://urll.co,2,2022-11-03 21:03:25+02,2022-11-03 22:20:41+02
+4,Bookmark 4,http://fb.com,,2022-11-03 22:21:35+02,2022-11-04 10:01:09+02
+2,Bookmark 2,http://fb.com,,2022-11-03 22:20:57+02,2022-11-04 10:01:14+02
+3,Bookmark 3,http://fb.com,,2022-11-03 22:21:05+02,2022-11-04 10:01:18+02

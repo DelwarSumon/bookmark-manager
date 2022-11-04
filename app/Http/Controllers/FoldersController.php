@@ -2,8 +2,8 @@
 /**
  * PHP version 8.1.6
  * 
- * @category Description
- * @package  Category
+ * @category Category
+ * @package  Package
  * @author   Delwar Sumon <delwarsumon0@gmail.com>
  * @license  MIT http://url.com
  * @link     http://url.com
@@ -18,8 +18,8 @@ use Illuminate\Http\Request;
 /**
  * Folder related methods
  * 
- * @category Description
- * @package  Category
+ * @category Category
+ * @package  Package
  * @author   Delwar Sumon <delwarsumon0@gmail.com>
  * @license  MIT http://url.com
  * @link     http://url.com
@@ -41,10 +41,11 @@ class FoldersController extends Controller
             return response(
                 $data, 200
             );
-        }catch(Exception $e){
+        } catch(Exception $e) {
             return response(
                 [
-                    'message' => $e->getMessage()
+                    'message' => $e->getMessage(),
+                    // 'errors' => $e
                 ], 400
             );
         }
@@ -68,8 +69,9 @@ class FoldersController extends Controller
                 ]
             );
 
-            //To create record in DB with all data from request. 
+            //To create record in git with all data from request. 
             // You have to ensure all the request attribute is exists in DB Table 
+            // $folder = new Folder();
             // $folder->insert($request->all()); 
 
             //To create record in DB with all data from request 
@@ -77,20 +79,30 @@ class FoldersController extends Controller
             // Folder::create($request->except(["_method", "_token"]));
             
             //To create record in DB with specified data from request 
+            // Folder::create(
+            //     ["name" => $request->name, "description" => $request->description]
+            // );
+            // OR
             Folder::create(
-                ["name" => $request->name, "description" => $request->description]
+                $request->only(["name", "description"])
             );
+            
 
             return response(
                 [
                     'message' => "Data stored successfully.",
                 ], 200
             );
-        }catch(Exception $e){
+        } catch(\Illuminate\Database\QueryException $ex) { 
             return response(
                 [
-                    'message' => $e->getMessage(),
-                    // 'errors' => $e
+                    'message' => $ex->getMessage()
+                ], 400
+            );
+        } catch(Exception $e) {
+            return response(
+                [
+                    'message' => $e->getMessage()
                 ], 400
             );
         }
@@ -110,25 +122,37 @@ class FoldersController extends Controller
             $this->validate(
                 $request, 
                 [
-                    'name' => 'required|string|min:3|max:255', 
+                    'name' => 'string|min:3|max:255', 
                     'description' => 'nullable|string'
                 ]
             );
+            // Update "name", "description" column of a record in DB if id is matched
             // Folder::where("id", $id)->update(
-            //     $request->except(["_method", "_token"])
+            //     // $request->except(["_method", "_token"])
+            //     $request->only(["name", "description"])
             // );
+
+            // Find record in DB by id
             $folder = Folder::find($id);
-            $folder->name = $request->name;
-            $folder->description = $request->description;
-            $folder->save();
+            if ($folder) { //If true (means exists)
+                // Update "name", "description" column of a record in DB
+                $folder->update($request->only(["name", "description"]));
+            }
 
             return response(
                 [
-                    'message' => "Data updated successfully.",
+                    'message' => ($folder) ? "Data updated successfully." : 
+                    "Id is invalid" 
                 ], 200
             );
 
-        }catch(Exception $e){
+        } catch(\Illuminate\Database\QueryException $ex) { 
+            return response(
+                [
+                    'message' => $ex->getMessage()
+                ], 400
+            );
+        } catch(Exception $e) {
             return response(
                 [
                     'message' => $e->getMessage()
@@ -148,19 +172,30 @@ class FoldersController extends Controller
     {
         try{
             
+            // Delete a specific record from DB if id is matched
             // Folder::where("id", $id)->delete();
+
+            // Find record in DB by id
             $folder = Folder::find($id);
-            if ($folder) {
+            if ($folder) { //If true (means exists)
+                // Delete the record from DB
                 $folder->delete();
             }
 
             return response(
                 [
-                    'message' => "Data deleted successfully.",
+                    'message' => ($folder) ? "Data deleted successfully." : 
+                    "Id is invalid",
                 ], 200
             );
 
-        }catch(Exception $e){
+        } catch(\Illuminate\Database\QueryException $ex) { 
+            return response(
+                [
+                    'message' => $ex->getMessage()
+                ], 400
+            );
+        } catch(Exception $e) {
             return response(
                 [
                     'message' => $e->getMessage()

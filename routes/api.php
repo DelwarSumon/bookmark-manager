@@ -22,8 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Bookmark routes
 Route::get('/v1/bookmarks', [BookmarksController::class, 'bookmarkList']);
-
-Route::get('/v1/bookmarks', [BookmarksController::class, 'bookmarkList']);
 Route::get(
     '/v1/bookmarks/folders/{id}', 
     [BookmarksController::class, 'bookmarkListByFolder']
