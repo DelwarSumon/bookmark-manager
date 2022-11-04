@@ -40,22 +40,22 @@ class Bookmark extends Model
     {
         // Check the params and prepared it to use in filtering. 
         // If params not exists, default value for -
-        // skip = 0, take = 10, sort_column = 'id', order_by = 'asc
+        // skip = 0, take = 10, sort_by = 'id', sort_order = 'asc
         $skip = ($params->page) ? (($params->page - 1) * $params->page) : 0;
         $take = ($params->per_page) ? $params->per_page : 10;
-        $sort_column = ($params->sort_column) ? $params->sort_column : "id";
-        $order_by = ($params->order_by) ? $params->order_by : "asc";
+        $sort_by = ($params->sort_by) ? $params->sort_by : "id";
+        $sort_order = ($params->sort_order) ? $params->sort_order : "asc";
 
         $data = DB::table("bookmarks")->take($take)->skip($skip)
-            ->orderBy($sort_column, $order_by)->get();
+            ->orderBy($sort_by, $sort_order)->get();
 
         return array(
             'data' => $data,
             'info' => array(
                 'page' => $skip,
                 'per_page' => $take,
-                'sort_column' => $sort_column,
-                'order_by' => $order_by
+                'sort_by' => $sort_by,
+                'sort_order' => $sort_order
             )
         );
     }
@@ -72,15 +72,15 @@ class Bookmark extends Model
     {
         // Check the params and prepared it to use in filtering. 
         // If params not exists, default value for -
-        // skip = 0, take = 10, sort_column = 'id', order_by = 'asc
+        // skip = 0, take = 10, sort_by = 'id', sort_order = 'asc
         $skip = ($params->page) ? (($params->page - 1) * $params->page) : 0;
         $take = ($params->per_page) ? $params->per_page : 10;
-        $sort_column = ($params->sort_column) ? $params->sort_column : "id";
-        $order_by = ($params->order_by) ? $params->order_by : "asc";
+        $sort_by = ($params->sort_by) ? $params->sort_by : "id";
+        $sort_order = ($params->sort_order) ? $params->sort_order : "asc";
 
         $data = DB::table("bookmarks")->where("folder_id", $folder_id)
             ->take($take)->skip($skip)
-            ->orderBy($sort_column, $order_by)->get();
+            ->orderBy($sort_by, $sort_order)->get();
 
         return array(
             'data' => $data,
@@ -88,8 +88,8 @@ class Bookmark extends Model
                 'folder_id' => $folder_id,
                 'page' => $skip,
                 'per_page' => $take,
-                'sort_column' => $sort_column,
-                'order_by' => $order_by
+                'sort_by' => $sort_by,
+                'sort_order' => $sort_order
             )
         );
     }
