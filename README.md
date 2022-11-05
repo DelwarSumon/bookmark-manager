@@ -11,7 +11,8 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 * change your directory to bookmark-manager (`cd bookmark-manager`)
 * composer install
 
-### Database Connection
+### Database Connection 
+###### (Update on `.env` file)
 * DB_CONNECTION=pgsql
 * DB_HOST=127.0.0.1
 * DB_PORT=YOUR_DB_PORT //5432
@@ -50,35 +51,38 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 * For <b>Bookmarks</b> Table
 <pre><code>\copy bookmarks from 'YOUR_CSV_FILE_PATH\YOUR_FILE_NAME.csv' DELIMITER ',' CSV HEADER;</code></pre>
 
+###### Note: I have added my testing records csv files here <a href="https://github.com/DelwarSumon/bookmark-manager/tree/main/public/DB%20Tables%20CSV`" target="_blank">https://github.com/DelwarSumon/bookmark-manager/tree/main/public/DB%20Tables%20CSV</a>
+
 ### API Endpoints
 <b>`Note: "YOUR-DOMAIN" - means project path, like - http://localhost/bookmark-manager`</b>
 
 <b>Bookmarks</b>
 * `GET` Get a list of bookmarks
-<pre><code> 
-<b>URL:</b> YOUR-DOMAIN/api/v1/bookmarks?per_page=10&page=1&sort_by=id&sort_order=asc
+<pre><code><b>URL:</b> YOUR-DOMAIN/api/v1/bookmarks
 
-<b>Parameters:</b>
-<b>page</> - integer (Default 1)
-<b>per_page</> - integer (Default 10)
-<b>sort_by</> - string (Default "id")
-<b>sort_order</> - string (Default "asc")
+<b>Parameters (Optional):</b>
+<b>page</b> - integer (Default 1)
+<b>per_page</b> - integer (Default 10)
+<b>sort_by</b> - string (Default "id")
+<b>sort_order</b> - string (Default "asc")
 </code></pre>
 
-* `GET` Get a list of bookmarks for a folder
-<pre><code> 
-<b>URL:</b> YOUR-DOMAIN/api/v1/bookmarks/folders/FOLDER_ID?per_page=10
+###### You can use <a href="https://www.postman.com/downloads/" target="_blank"><b>Postman</b></a> to test API request
+<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/Bookmark_Manager.png?raw=true"></a></p>
 
-<b>Parameters:</b>
-<b>page</> - integer (Default 1)
-<b>per_page</> - integer (Default 10)
-<b>sort_by</> - string (Default "id")
-<b>sort_order</> - string (Default "asc")
+* `GET` Get a list of bookmarks for a folder
+
+<pre><code><b>URL:</b> YOUR-DOMAIN/api/v1/bookmarks/folders/FOLDER_ID
+
+<b>Parameters (Optional):</b>
+<b>page</b> - integer (Default 1)
+<b>per_page</b> - integer (Default 10)
+<b>sort_by</b> - string (Default "id")
+<b>sort_order</b> - string (Default "asc")
 </code></pre>
 
 * `POST` Create a new bookmark
-<pre><code>
-<b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks
+<pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks
 <b>Fields:</b> 
 "name" - String
 "url" - URL
@@ -86,16 +90,15 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 </code></pre>
 
 * `PUT` Update a bookmark
-YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
+<pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
+<b>Fields:</b> 
+"name" - String
+"url" - URL
+"folder_id" - Integer (Optional)
+</code></pre>
 
 * `DELETE` Delete a bookmark
-YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
-
-* `PUT` Update a bookmark
-YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
-
-* `DELETE` Delete a bookmark
-YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
-
+<pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
+</code></pre>
 
 
