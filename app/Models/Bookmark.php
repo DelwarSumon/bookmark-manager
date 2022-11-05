@@ -45,6 +45,16 @@ class Bookmark extends Model
         $take = ($params->per_page) ? $params->per_page : 10;
         $sort_by = ($params->sort_by) ? $params->sort_by : "id";
         $sort_order = ($params->sort_order) ? $params->sort_order : "asc";
+        
+        if (!in_array(
+            $sort_by, array("id", "name", "created_at", "updated_at")
+        )
+        ) {
+            return array(
+                'message' => $sort_by . " field not found for sorting",
+                'data' => []
+            );
+        }
 
         $data = DB::table("bookmarks")->take($take)->skip($skip)
             ->orderBy($sort_by, $sort_order)->get();
@@ -77,6 +87,16 @@ class Bookmark extends Model
         $take = ($params->per_page) ? $params->per_page : 10;
         $sort_by = ($params->sort_by) ? $params->sort_by : "id";
         $sort_order = ($params->sort_order) ? $params->sort_order : "asc";
+
+        if (!in_array(
+            $sort_by, array("id", "name", "created_at", "updated_at")
+        )
+        ) {
+            return array(
+                'message' => $sort_by . " field not found for sorting",
+                'data' => []
+            );
+        }
 
         $data = DB::table("bookmarks")->where("folder_id", $folder_id)
             ->take($take)->skip($skip)
