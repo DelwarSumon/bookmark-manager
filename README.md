@@ -56,7 +56,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 ### API Endpoints
 <b>`Note: "YOUR-DOMAIN" - means project path, like - http://localhost/bookmark-manager`</b>
 
-<b>Bookmarks</b>
+## <b>Bookmarks</b>
 * `GET` Get a list of bookmarks
 <pre><code><b>URL:</b> YOUR-DOMAIN/api/v1/bookmarks
 
@@ -109,7 +109,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 
 <p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Delete_Bookmark.png?raw=true"></p>
 
-<b>Folder</b>
+## <b>Folder</b>
 * `GET` Get a list of folders
 <pre><code><b>URL:</b> YOUR-DOMAIN/api/v1/folders
 
