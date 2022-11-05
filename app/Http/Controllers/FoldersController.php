@@ -69,7 +69,10 @@ class FoldersController extends Controller
                 ]
             );
 
-            //To create record in git with all data from request. 
+            // Note: I commented here some code. 
+            // These are the other way to create record in DB
+
+            // To create record in git with all data from request. 
             // You have to ensure all the request attribute is exists in DB Table 
             // $folder = new Folder();
             // $folder->insert($request->all()); 
@@ -126,6 +129,10 @@ class FoldersController extends Controller
                     'description' => 'nullable|string'
                 ]
             );
+
+            // Note: I commented here some code. 
+            // These are the other way to update record in DB
+
             // Update "name", "description" column of a record in DB if id is matched
             // Folder::where("id", $id)->update(
             //     // $request->except(["_method", "_token"])
@@ -171,7 +178,9 @@ class FoldersController extends Controller
     public function destroy(int $id)
     {
         try{
-            
+            // Note: I commented here some code. 
+            // These are the other way to delete record from DB
+
             // Delete a specific record from DB if id is matched
             // Folder::where("id", $id)->delete();
 

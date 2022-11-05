@@ -94,7 +94,10 @@ class BookmarksController extends Controller
                 ]
             );
 
-            //To create record in DB with all data from request. 
+            // Note: I commented here some code. 
+            // These are the other way to create record in DB
+
+            // To create record in DB with all data from request. 
             // You have to ensure all the request attribute is exists in DB Table 
             // $bookmark = new Bookmark();
             // $bookmark->insert($request->all()); 
@@ -154,6 +157,16 @@ class BookmarksController extends Controller
                 ]
             );
             
+            // Note: I commented here some code. 
+            // These are the other way to update record in DB
+
+            // Update "name", "url", "folder_id" column of a record in DB 
+            // if id is matched
+            // Bookmark::where("id", $id)->update(
+            //     // $request->except(["_method", "_token"])
+            //     $request->only(["name", "url", "folder_id"])
+            // );
+
             // Find record in DB by id
             $bookmark = Bookmark::find($id);
             if ($bookmark) { //If true (means exists)
@@ -193,7 +206,9 @@ class BookmarksController extends Controller
     public function destroy(int $id)
     {
         try{
-            
+            // Note: I commented here some code. 
+            // These are the other way to delete record from DB
+
             // Delete a specific record from DB if id is matched
             // Bookmark::where("id", $id)->delete();
 
