@@ -68,7 +68,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 </code></pre>
 
 ###### You can use <a href="https://www.postman.com/downloads/" target="_blank"><b>Postman</b></a> to test API request
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Get_Bookmark.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Get_Bookmark.png?raw=true"></p>
 
 * `GET` Get a list of bookmarks for a folder
 
@@ -81,6 +81,8 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 <b>sort_order</b> - string (Default "asc")
 </code></pre>
 
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Get_Bookmark_Folder.png?raw=true"></p>
+
 * `POST` Create a new bookmark
 <pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks
 <b>Fields:</b> 
@@ -89,7 +91,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 "folder_id" - Integer (Optional)
 </code></pre>
 
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Create_Bookmark.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Create_Bookmark.png?raw=true"></p>
 
 * `PUT` Update a bookmark
 <pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
@@ -99,13 +101,13 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 "folder_id" - Integer (Optional)
 </code></pre>
 
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Update_Bookmark.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Update_Bookmark.png?raw=true"></p>
 
 * `DELETE` Delete a bookmark
 <pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/bookmarks/BOOKMARK_ID
 </code></pre>
 
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Delete_Bookmark.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Delete_Bookmark.png?raw=true"></p>
 
 <b>Folder</b>
 * `GET` Get a list of folders
@@ -118,9 +120,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 <b>sort_order</b> - string (Default "asc")
 </code></pre>
 
-###### You can use <a href="https://www.postman.com/downloads/" target="_blank"><b>Postman</b></a> to test API request
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Get_Folder.png?raw=true"></a></p>
-
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Get_Folder.png?raw=true"></p>
 
 * `POST` Create a new folder
 <pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/folders
@@ -130,7 +130,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 "folder_id" - Integer (Optional)
 </code></pre>
 
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Create_Folder.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Create_Folder.png?raw=true"></p>
 
 * `PUT` Update a folder
 <pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/folders/FOLDER_ID
@@ -140,11 +140,11 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 "folder_id" - Integer (Optional)
 </code></pre>
 
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Update_Folder.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Update_Folder.png?raw=true"></p>
 
 * `DELETE` Delete a folder
 <pre><code><b>Url:</b> YOUR-DOMAIN/api/v1/folders/FOLDER_ID
 </code></pre>
 
-<p align="center"><a href="https://laravel.com" target="_blank" ><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Delete_Folder.png?raw=true"></a></p>
+<p align="center"><img src="https://github.com/DelwarSumon/bookmark-manager/blob/main/public/readme_images/Delete_Folder.png?raw=true"></p>
 
