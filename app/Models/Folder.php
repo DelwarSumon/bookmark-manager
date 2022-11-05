@@ -41,7 +41,8 @@ class Folder extends Model
         // Check the params and prepared it to use in filtering. 
         // If params not exists, default value for -
         // skip = 0, take = 10, sort_by = 'id', sort_order = 'asc
-        $skip = ($params->page) ? (($params->page - 1) * $params->page) : 0;
+        $page = ($params->page) ? $params->page : 0;
+        $skip = ($params->page) ? (($params->page - 1) * $params->per_page) : 0;
         $take = ($params->per_page) ? $params->per_page : 10;
         $sort_by = ($params->sort_by) ? $params->sort_by : "id";
         $sort_order = ($params->sort_order) ? $params->sort_order : "asc";
@@ -62,7 +63,7 @@ class Folder extends Model
         return array(
             'data' => $data,
             'info' => array(
-                'page' => $skip,
+                'page' => $page,
                 'per_page' => $take,
                 'sort_by' => $sort_by,
                 'sort_order' => $sort_order
