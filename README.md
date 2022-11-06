@@ -8,7 +8,7 @@ The Bookmark manager is a system that’s similar to how the bookmarking is done
 ### Installation Procedure
 
 * git clone https://github.com/DelwarSumon/bookmark-manager.git
-* change your directory to bookmark-manager (`cd bookmark-manager`)
+* change your directory to bookmark-manager (For windows - `cd bookmark-manager`)
 * composer install
 
 ### Database Connection 
